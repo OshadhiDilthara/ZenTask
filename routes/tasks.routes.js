@@ -1,6 +1,6 @@
 const Router = require('@koa/router');
 
-const {createTask, getTasks} = require('../api/tasks.api');
+const {createTask, getTasks, getTaskById} = require('../api/tasks.api');
 
 const router = new Router({
     prefix: '/tasks'
@@ -16,6 +16,11 @@ router.post('/',async ctx=>{
 
     ctx.response.status=200;
     ctx.body=task;
+})
+
+router.get('/:id', async ctx =>{
+    const id = ctx.params.id;
+    ctx.body = await getTaskById(id);
 })
 
 module.exports = router;

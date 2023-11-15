@@ -13,4 +13,8 @@ const getAll = async () =>{
     return cursor.toArray();
 }
 
-module.exports = {save, getAll};
+const getById = async(id) =>{
+    return await tasks.findOne({_id: new ObjectId(id)});
+}
+
+module.exports = {save, getAll, getById};

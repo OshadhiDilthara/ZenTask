@@ -1,4 +1,4 @@
-const {save, getAll}= require('../dal/task.dao');
+const {save, getAll, getById}= require('../dal/task.dao');
 
 const createTask = async ({title, description, date, priority, status,comment}) =>{
     const task = {
@@ -15,8 +15,13 @@ const createTask = async ({title, description, date, priority, status,comment}) 
 const getTasks = async()=>{
     return await getAll();
 }
+
+const getTaskById = async id =>{
+    return await getById(id);
+}
  
 module.exports = {
     createTask,
-    getTasks
+    getTasks,
+    getTaskById
 }
