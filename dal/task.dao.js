@@ -17,4 +17,8 @@ const getById = async(id) =>{
     return await tasks.findOne({_id: new ObjectId(id)});
 }
 
-module.exports = {save, getAll, getById};
+const removeById = async(id) =>{
+    return await tasks.deleteOne({_id: new ObjectId(id)});
+}
+
+module.exports = {save, getAll, getById, removeById};
