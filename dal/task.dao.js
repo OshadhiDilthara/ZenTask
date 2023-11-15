@@ -21,4 +21,8 @@ const removeById = async(id) =>{
     return await tasks.deleteOne({_id: new ObjectId(id)});
 }
 
-module.exports = {save, getAll, getById, removeById};
+const updateById = async(id,{title, description, date, priority, status,comment})=>{
+    return await tasks.replaceOne({_id: new ObjectId(id)}, {title, description, date, priority, status,comment});
+}
+
+module.exports = {save, getAll, getById, removeById, updateById};

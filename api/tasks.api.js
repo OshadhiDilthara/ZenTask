@@ -1,4 +1,4 @@
-const {save, getAll, getById, removeById}= require('../dal/task.dao');
+const {save, getAll, getById, removeById, updateById}= require('../dal/task.dao');
 
 const createTask = async ({title, description, date, priority, status,comment}) =>{
     const task = {
@@ -23,10 +23,15 @@ const getTaskById = async id =>{
 const removeTaskById = async id =>{
     return await removeById(id);
 }
+
+const updateTaskById = async (id,{title, description, date, priority, status,comment} )=>{
+    return await updateById(id, {title, description, date, priority, status,comment});
+}
  
 module.exports = {
     createTask,
     getTasks,
     getTaskById,
-    removeTaskById
+    removeTaskById,
+    updateTaskById
 }
